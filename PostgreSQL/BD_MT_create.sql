@@ -44,7 +44,7 @@ create table Concentracoes(Conc_Id serial not null,
 						   Conc_data timestamp not null,                --time and date of the event
 						   Conc_coordenadas point not null,             --event coordinates/roadtrip initial coordinates
 						   Conc_RT_Id integer,                          --FK to Roadtrip
-						   Conc_creator_Id integer,                     --FK to Utilizador
+						   Conc_creator_Id integer not null,                     --FK to Utilizador
 						   Conc_pontos_Id integer,                      --FK to Pontos
 						   primary key (Conc_Id));
 						   
