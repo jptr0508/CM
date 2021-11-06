@@ -6,7 +6,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var utilizadoresRouter = require('./routes/userRoutes');
-var concentRouter = require('./routes/concentRoutes');
+var concentRouter = require('./routes/meetingRoutes');
 
 var app = express();
 
