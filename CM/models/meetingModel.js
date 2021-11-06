@@ -18,11 +18,11 @@ module.exports.getAllConcents = async function () {
     }
 }
 
-module.exports.getConcentByUserID = async function (id) {
+module.exports.getConcentByID = async function (id) {
     try {
-        let sql = "Select * from concentracoes where conc_creator_id = $1";
+        let sql = "Select * from concentracoes where conc_id = $1";
         let result = await pool.query(sql, [id]);
-        let concentracoes = result.rows;
+        let concentracoes = result.rows[0];
         return {
             status: 200,
             result: concentracoes

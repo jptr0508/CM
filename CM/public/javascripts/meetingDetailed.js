@@ -8,9 +8,8 @@ window.onload = async function () {
             method: "get",
             dataType: "json"
         });
+        console.log(concent);
         
-
-        console.log(conc_nome);
         html += `<section>
     <h3>${concent.conc_nome}</h3>
     <h3>${concent.conc_descricao}</h3>

@@ -10,7 +10,7 @@ router.get("/", async function (req, res, next) {
 
 router.get("/:id", async function (req, res, next) {
     let id = req.params.id;
-    let result = await mUtil.getConcentByUserID(id);
+    let result = await mUtil.getConcentByID(id);
     res.status(result.status).send(result.result);
 });
  router.post("/", async function (req, res, next){
