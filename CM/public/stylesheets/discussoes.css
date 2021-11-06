@@ -1,9 +1,8 @@
-body{
+body {
     display: grid;
     grid-template-areas: 'h h h'
                          'a m a2'
                          'f f f';
-    grid-gap: 10px;
     grid-template-columns: 30% auto 30%;
 }
 
@@ -13,45 +12,22 @@ header {
 }
 /*---------------/Header-------------------*/
 
-/*---------------Main-------------------*/
-main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 700px;
-    grid-area: m;
-}
-
-main > section{
-    background-color: #003078;
-    width: 500px;
-}
-
-h3 {
-    color: #FFFFFF;
-    cursor: pointer;
-}
-
-h3:hover {
-    color: #C48917;
-}
-/*---------------/Main-------------------*/
-
 /*---------------Aside-------------------*/
 aside {
-	width: 30%;
-    align-content: center;
+    grid-area: a;
+    width: 30%;
+    color: #FFFFFF;
+    background-color: #185CC4;
+    text-align: center;
+}
+/*---------------/Aside-------------------*/
+
+/*---------------Aside2-------------------*/
+section {
     grid-area: a2;
-    margin-left: 80px;
 }
 
-aside a {
-    display: flex;
-    text-decoration: none;
-    justify-content: center;
-}
-
-aside a button {
+section a button {
     color: #FFFFFF;
     background-color: #FFFFFF;
     font-size: 20px;
@@ -60,12 +36,15 @@ aside a button {
     padding: 0px 10px;
     cursor: pointer;
     border-radius: 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 60px;
 }
 
-aside a button:hover {
+section a button:hover {
     color: #FFBD38;
 }
-/*---------------/Aside-------------------*/
+/*---------------/Aside2-------------------*/
 
 /*---------------Footer-------------------*/
 footer {
