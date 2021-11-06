@@ -3,6 +3,10 @@
   margin: 0;
   padding: 0;
 }
+/*------------Classes-----------------*/
+.align {
+  padding: 15px 14px;
+}
 
 .wrap {
   display: flex;
@@ -28,6 +32,9 @@
   width: 100px;
 }
 
+/*------------/Classes-----------------*/
+
+/*------------Header-----------------*/
 header {
   display: flex;
   justify-content: space-between;
@@ -37,10 +44,6 @@ header {
 
 header img {
   width: 261px;
-}
-
-section {
-  text-align: center;
 }
 
 nav {
@@ -54,17 +57,13 @@ nav li {
   color: #FFFFFF;
 }
 
-main section {
-  margin: 10px 0px;
-}
-
-footer {
-  background-color: #003078
-}
-
-p {
-  color: #FFFFFF;
-  text-transform: uppercase;
+li button {
+  color: #FFBD38;
+  background-color: #003078;
+  font-size: 20px;
+  border: 1px solid #FFBD38;
+  padding: 0px 10px;
+  cursor: pointer;
 }
 
 nav a, nav a:visited {
@@ -75,5 +74,24 @@ nav a, nav a:visited {
 nav a:hover {
   color: #FFBD38;
 }
+/*------------/Header-----------------*/
+
+/*------------Main-----------------*/
+main section {
+  margin: 10px 0px;
+  text-align: center;
+}
+
+p {
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+/*------------/Main-----------------*/
+
+/*------------Footer-----------------*/
+footer {
+  background-color: #003078
+}
+/*------------/Footer-----------------*/
 
 #map { height: 180px; }

@@ -1,0 +1,12 @@
+#concentracoes{
+    width: 100px;
+}
+
+button {
+    color: #FFBD38;
+    background-color: #003078;
+    font-size: 20px;
+    border: 1px solid #FFBD38;
+    padding: 0px 10px;
+    cursor: pointer;
+}
