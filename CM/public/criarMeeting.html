@@ -2,7 +2,6 @@
 
 <head>
     <title>Meets & Trips</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
         crossorigin="" />
@@ -13,14 +12,26 @@
         crossorigin=""></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="javascripts/meeting.js"></script>
     
 </head>
 
 <body>
     <h1>Meetings</h1>
     <main id="concentracoes">
-        
+        <form>
+            <h1>Criar Evento</h1>
+
+            <p> <label>Tipo de Evento</label> <select> <option value="conc">Concentração</option> <option value="rt">Road Trip</option> </select></p>
+            
+            <p> <label for="nome">Nome do Evento</label> <input type="text" name="nome" id="nome"></p>
+
+            <p> <label for="data">Data</label> <input type="datetime-local" name="data" id="data"></p>
+    
+            <p> <label for="abstract">Descrição</label> <textarea maxlength="500"></textarea> Describe your talk in 500 words or less</p>
+    
+            <p> <input type="submit" value="Submit"> </p>
+    
+        </form>
 
     </main>
 </body>

@@ -20,6 +20,14 @@
   width: 150px;
 }
 
+.imgsize1 {
+  width: 110px;
+}
+
+.imgsize2 {
+  width: 100px;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -48,6 +56,10 @@ nav li {
 
 main section {
   margin: 10px 0px;
+}
+
+footer {
+  background-color: #003078
 }
 
 p {
