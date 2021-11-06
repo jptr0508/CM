@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
-var mUtil = require("../models/concentModel");
+var mUtil = require("../models/meetingModel");
 
 router.get("/", async function (req, res, next) {
-    let concentracoes = await mUtil.getAllConcents();
-    res.send(concentracoes);
+    let result = await mUtil.getAllConcents();
+    res.status(result.status).send(result.result);
 });
 
 router.get("/:id", async function (req, res, next) {
