@@ -1,10 +1,67 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  font-family: 'Teko', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-a {
-  color: #00B7FF;
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.block {
+  background-color: #003078;
+  width: 300px;
+}
+
+.imgsize {
+  width: 150px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #003078;
+}
+
+header img {
+  width: 261px;
+}
+
+section {
+  text-align: center;
+}
+
+nav {
+  padding: 35px 0px;
+}
+
+nav li { 
+  display: inline;
+  padding: 10px 20px;
+  font-size: 20px;
+  color: #FFFFFF;
+}
+
+main section {
+  margin: 10px 0px;
+}
+
+p {
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+
+nav a, nav a:visited {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+nav a:hover {
+  color: #FFBD38;
 }
 
 #map { height: 180px; }
