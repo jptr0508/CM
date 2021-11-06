@@ -19,6 +19,6 @@ window.onload = async function() {
 
     function showConcent(id) {
         sessionStorage.setItem("concentId", id);
-        window.location = "meeting.html";
+        window.location = "meetingDetailed.html";
         
     }
