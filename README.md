@@ -8,3 +8,8 @@ Possui tambem uma loja virtual com virtual currency para efetuar.
 |--------|------|
 |  20190861  | João Rolo |
 |  20190881  | Tomás Ferreira |
+
+
+# Link da aplicação Online [1]
+
+[1]:https://meets-trips.herokuapp.com/
