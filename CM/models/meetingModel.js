@@ -39,7 +39,7 @@ module.exports.getConcentByID = async function (id) {
 module.exports.saveConcent = async function (meet) {
     try {
         let sql = "insert into concentracoes (conc_nome, conc_descricao, conc_data, conc_coordenadas,conc_rt_id, conc_creator_id) values ($1,$2,$3,$4,$5,$6)";
-        let result = await pool.query(sql, [meet.name, meet.desc, meet.data, meet.coordenadas, meet.conc_rt_id, conc_creator_id]);
+        let result = await pool.query(sql, [meet.conc_nome, meet.conc_descricao, meet.conc_data, meet.conc_coordenadas, meet.conc_rt_id, conc_creator_id]);
         return{status: 200, result:result}
     } catch (err) {
         console.log(err);

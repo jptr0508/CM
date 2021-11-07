@@ -15,9 +15,8 @@ router.get("/:id", async function (req, res, next) {
 });
  router.post("/", async function (req, res, next){
     let newMeet = req.body;
-    let result = await mUtil.saveUnit(newMeet);
-    console.log("saving unit with id: "+ newMeet.name);
-    res.status(result.status).send(result.result);;
+    let result = await mUtil.saveConcent(newMeet);
+    res.status(result.status).send(result.result);
  })
 
 

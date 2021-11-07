@@ -2,7 +2,6 @@ window.onload = async function () {
     let data = sessionStorage.getItem('concentId');
     try {
         let html = "";
-        alert("sending ID: " + data);
         let concent = await $.ajax({
             url: "/api/concentracoes/" + data,
             method: "get",
