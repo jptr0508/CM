@@ -9,3 +9,6 @@ insert into produtos (prod_nome, prod_descricao,prod_stock, prod_preço) values(
 insert into concentracoes (conc_nome, conc_descricao,conc_data,conc_coordenadas,conc_creator_id ) values('Hondas do aço','Concentracao de hondas do aço','2020-11-05',point(38.788383, -9.093056), 2);
 insert into concentracoes (conc_nome, conc_descricao,conc_data,conc_coordenadas,conc_creator_id ) values('BMWs do porto','Concentracao de BMWs','2020-11-11',point(41.183631, -8.565389), 1);
 
+
+insert into discussoes (disc_nome, disc_descricao, disc_tags, disc_creator_id ) values('Como trocar o óleo a um fiat punto','Olá malta, estava com um problema a trocssr o óleo ao meu fiat punto, e gostava de saber se alguem me conseguia ajudar!','#DIY, #PuntoéCarro', 1);
+insert into discussoes (disc_nome, disc_descricao, disc_tags, disc_creator_id ) values('O que acham do novo BMW M4 que saiu?','Boas pessoal, neste forum gostava de saber quais as vossas ideias sobre o novo BMW M4 acabadinho de ser lançado','#BMW, #PetrolHead', 2);
