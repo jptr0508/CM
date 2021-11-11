@@ -54,7 +54,7 @@ create table Roadtrip(RT_Id serial not null,
 					  inherits (Concentracoes);
 
 create table Pontos(Pontos_Id serial not null,
-					Pontos_concentracao integer not null,
+					Pontos_concentracao float4 not null,
 					primary key (Pontos_Id));
 
 create table MilestonesUtilizador (Ms_User_Id serial not null,
