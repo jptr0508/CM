@@ -33,9 +33,6 @@ window.onload = async function () {
 
 async function Registar() {
 
-
-
-
     let data = {
         conc_nome: document.getElementById("nome").value,
         conc_descricao: document.getElementById("descricao").value,

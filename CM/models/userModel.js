@@ -17,3 +17,21 @@ module.exports.getAllUsers = async function () {
         };
     }
 }
+
+module.exports.getUsersName = async function () {
+    try {
+        let sql = "Select user_id, user_nome from utilizador";
+        let result = await pool.query(sql);
+        let utilizadores = result.rows;
+        return {
+            status: 200,
+            result: utilizadores
+        };
+    } catch (err) {
+        console.log(err);
+        return {
+            status: 500,
+            result: err
+        };
+    }
+}
