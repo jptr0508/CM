@@ -49,3 +49,17 @@ module.exports.saveConcent = async function (meet) {
         };
     }
 }
+
+module.exports.saveRoadtrip = async function (rt) {
+    try {
+        let sql = "insert into roadtrip (conc_nome, conc_descricao, conc_data, conc_coordenadas, conc_creator_id,rt_coordenadas_final) values ($1,$2,$3,$4,$5,$6)";
+        let result = await pool.query(sql, [rt.conc_nome, rt.conc_descricao, rt.conc_data, rt.conc_coordenadas, conc_creator_id, rt.rt_coordenadas_final]);
+        return{status: 200, result:result}
+    } catch (err) {
+        console.log(err);
+        return {
+            status: 500,
+            result: err
+        };
+    }
+}

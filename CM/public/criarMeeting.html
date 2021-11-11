@@ -43,9 +43,9 @@
     <form>
       <h1>Criar Evento</h1>
 
-      <p> <label>Tipo de Evento</label> <select>
-          <option value="conc">Concentração</option>
-          <option value="rt">Road Trip</option>
+      <p> <label>Tipo de Evento</label> <select id="tipoEvent" onchange="roadtrip()">
+          <option value="1">Concentração</option>
+          <option value="2">Road Trip</option>
         </select></p>
 
       <p> <label for="nome">Nome do Evento</label> <input type="text" name="nome" id="nome"></p>
@@ -55,8 +55,11 @@
       <p> <label for="abstract">Descrição</label> <textarea maxlength="500" id="descricao"></textarea></p>
 
       <p> <label for="mapa">Localização</label></p>
-      
+
       <section id="mapa"></section>
+
+      <p><label for="mapaF" id = "mapaFL">Ponto de destino</label></p>
+      <section id="mapaF"></section>
 
       <p> <button type="button" onclick="Registar()"> Publicar </button></p>
 
