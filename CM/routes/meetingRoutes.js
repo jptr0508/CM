@@ -18,6 +18,10 @@ router.get("/:id", async function (req, res, next) {
     let result = await mUtil.saveConcent(newMeet);
     res.status(result.status).send(result.result);
  })
-
+ router.post("/roadtrip", async function (req, res, next){
+    let newMeet = req.body;
+    let result = await mUtil.saveRoadtrip(newMeet);
+    res.status(result.status).send(result.result);
+ })
 
 module.exports = router;

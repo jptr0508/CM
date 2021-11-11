@@ -76,7 +76,7 @@ button:hover{
 }
 /*---------------/Main-------------------*/
 
-#mapa{
+#mapa, #mapaF{
     width: 500px;
     height:500px;
 }
