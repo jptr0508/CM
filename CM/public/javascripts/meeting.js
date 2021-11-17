@@ -7,11 +7,25 @@ window.onload = async function () {
             dataType: "json"
         });
         for (let concent of concentracoes) {
+
+            let tipo_concent;
+            console.log(concent.conc_tipo);
+            switch(concent.conc_tipo){
+                case 1:
+                    tipo_concent = "Meeting"
+                    break;
+
+                case 2:
+                    tipo_concent = "Roadtrip"
+                    break;
+
+            }
             console.log(concent.conc_coordenadas.x, concent.conc_coordenadas.y);
-            html += `<section onclick='showConcent(${concent.conc_id})'>
+            html += `<div class='card' onclick='showConcent(${concent.conc_id})'>
     <h3>${concent.conc_nome}</h3>
     <p>${concent.conc_descricao}</p>
-    </section>`;
+    <p>Tipo de evento: `+tipo_concent+`</p>
+    </div>`;
             document.getElementById("concentracoes").innerHTML = html;
 
         }

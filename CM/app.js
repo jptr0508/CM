@@ -8,6 +8,8 @@ var usersRouter = require('./routes/users');
 var utilizadoresRouter = require('./routes/userRoutes');
 var concentRouter = require('./routes/meetingRoutes');
 var discussionRouter = require('./routes/discussionRoutes');
+var pontosRouter = require('./routes/pontosRoutes');
+
 
 var app = express();
 
@@ -22,5 +24,6 @@ app.use('/users', usersRouter);
 app.use('/api/utilizadores',utilizadoresRouter);
 app.use('/api/concentracoes',concentRouter);
 app.use('/api/discussoes', discussionRouter);
+app.use('/api/pontos', pontosRouter);
 
 module.exports = app;

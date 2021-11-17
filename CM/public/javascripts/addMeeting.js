@@ -1,6 +1,7 @@
 var latleng;
 var latlengF
 var tipo;
+var user_ID = 1;
 window.onload = async function () {
 
     document.getElementById("mapaFL").style.display = 'none';
@@ -58,14 +59,18 @@ window.onload = async function () {
 
 async function roadtrip() {
     tipo = document.getElementById("tipoEvent").value;
+    
     switch (tipo) {
-        case "1":
+        
+        case '1':
+            
             document.getElementById("mapaFL").style.display = 'none';
             document.getElementById("mapaF").style.display = 'none';
             break;
 
 
-        case "2":
+        case '2':
+            
             document.getElementById("mapaFL").style.display = 'block';
             document.getElementById("mapaF").style.display = 'block';
             break;
@@ -74,54 +79,67 @@ async function roadtrip() {
 }
 
 async function Registar() {
-    
+    alert("Evento criado com sucesso");
     switch (tipo) {
        
-        case "1":
-            
+        case '1':
+            alert("Evento criado com sucesso");
+
             let data = {
                 conc_nome: document.getElementById("nome").value,
                 conc_descricao: document.getElementById("descricao").value,
                 conc_data: document.getElementById("data").value,
-                conc_rt_id: null,
+                conc_tipo:tipo,
                 conc_coordenadas: latleng,
-                conc_creator_id: 1
+                conc_creator_id: 1,
+                conc_pontos_id:1
             };
             
-            try {
+                
+            
+                try {                      
                 let res = await $.ajax({
                     url: `/api/concentracoes`,
                     method: "post",
                     data: JSON.stringify(data),
                     dataType: "json",
                     contentType: "application/json"
-                })
-                alert("Evento criado com sucesso");
+                });
+                alert("Pontos atribuidos a criacao do evento");
+
                 window.location.href = "meeting.html";
+
             } catch (err) {
                 console.log(err);
             }
+            
+            
+                
+            
+
+            
             break;
 
-        case "2":
+        case '2':
+            alert("entrou no caso 2");
             try {
                 let data = {
                     conc_nome: document.getElementById("nome").value,
                     conc_descricao: document.getElementById("descricao").value,
                     conc_data: document.getElementById("data").value,
-                    conc_rt_id: null,
                     conc_coordenadas: latleng,
                     conc_creator_id: 1,
+                    conc_tipo:tipo,
                     rt_coordenadas_final: latlengF
                 };
 
-                let res = await $.ajax({
+                let res1 = await $.ajax({
                     url: `/api/concentracoes/roadtrip`,
                     method: "post",
                     data: JSON.stringify(data),
                     dataType: "json",
                     contentType: "application/json"
-                })
+                });
 
 
                 alert("Roadtrip criado com sucesso");
