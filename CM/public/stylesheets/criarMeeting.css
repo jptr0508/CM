@@ -55,6 +55,7 @@ button
     padding: 10px 40px;
     cursor: pointer;
     border: none;
+    margin-top: 5px;
 }
 
 input[type=text]

@@ -17,7 +17,8 @@
     <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" 
     crossorigin=""></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="javascripts/addDiscussion.js"></script>    
     
 </head>
 
@@ -46,11 +47,11 @@
 
             <p> <label for="nome">Tags</label> <input type="text" name="tags" id="tags"></p>
     
-            <p> <label for="abstract">Descrição</label> <textarea maxlength="500"></textarea></p>
+            <p> <label for="abstract">Descrição</label> <textarea maxlength="500" id="descricao"></textarea></p>
 
-            <p> <label for="nome">Utilizador a adicionar</label><input type="text" name="nomeUserC" id="nomeUserC"></p>
+            <p> <label for="nome">Utilizador a adicionar</label><input type="text" name="nomeUserC" id="nomeUserC"> <button type="button" onclick="Convidar()"> Convidar </button></p>
 
-            <p> <input type="submit" value="Submit"> </p>
+            <p> <button type="button" onclick="RegistarDisc()"> Publicar </button> </p>
     
         </form>
 

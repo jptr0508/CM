@@ -21,13 +21,12 @@ window.onload = async function () {
 
             }
             console.log(concent.conc_coordenadas.x, concent.conc_coordenadas.y);
-            html += `<div class='card' onclick='showConcent(${concent.conc_id})'>
-    <h3>${concent.conc_nome}</h3>
-    <p>${concent.conc_descricao}</p>
+            html += `<section onclick='showConcent(${concent.conc_id})'>
+            <h3>${concent.conc_nome}</h3>
+            <p>${concent.conc_descricao}</p>
     <p>Tipo de evento: `+tipo_concent+`</p>
-    </div>`;
+            </section>`;
             document.getElementById("concentracoes").innerHTML = html;
-
         }
     } catch (err) {
         console.log(err);
