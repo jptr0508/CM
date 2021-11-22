@@ -41,7 +41,7 @@ create table PontosIntermedios(PI_Id serial not null,
 create table Concentracoes(Conc_Id serial not null,
 						   Conc_nome varchar(30) not null,
 						   Conc_descricao text,
-						   Conc_data timestamp not null,                --time and date of the event
+						   Conc_data date not null,                --time and date of the event
 						   Conc_coordenadas point not null,             --event coordinates/roadtrip initial coordinates
 						   Conc_creator_Id integer not null,            --FK to Utilizador
 						   Conc_tipo integer not null,                  --tipo de concentração
