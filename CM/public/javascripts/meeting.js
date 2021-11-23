@@ -21,16 +21,23 @@ window.onload = async function () {
 
             }
             console.log(concent.conc_coordenadas.x, concent.conc_coordenadas.y);
-            html += `<section onclick='showConcent(${concent.conc_id})'>
+            html += `<section>
             <h3>${concent.conc_nome}</h3>
             <p>${concent.conc_descricao}</p>
-    <p>Tipo de evento: `+tipo_concent+`</p>
+            <p>Tipo de evento: `+tipo_concent +`</p>
+            <button onclick='editarMeet(${concent.conc_id})'>Editar</button>
+            <button onclick='showConcent(${concent.conc_id})'>Detalhes</Button>
             </section>`;
             document.getElementById("concentracoes").innerHTML = html;
         }
     } catch (err) {
         console.log(err);
     }
+}
+
+function editarMeet(id){
+    sessionStorage.setItem("concentId", id);
+    window.location = "editMeeting.html";
 }
 
 function showConcent(id) {

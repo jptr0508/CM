@@ -19,7 +19,7 @@
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="javascripts/addMeeting.js"></script>
+  <script src="javascripts/editMeeting.js"></script>
 </head>
 
 <body>
@@ -33,7 +33,7 @@
           <li><a href="meeting.html">Events</a></li>
           <li><a href="discussions.html">Discussions</a></li>
           <li><a href="store.html">Store</a></li>
-          <li><button>Log In</button></li>
+          <li><button type="button">Log In</button></li>
         </ul>
       </nav>
     </section>
@@ -42,11 +42,6 @@
   <main id="concentracoes">
     <form>
       <h1>Criar Evento</h1>
-
-      <p> <label>Tipo de Evento</label> <select id="tipoEvent" onchange="roadtrip()">
-          <option value='1'>Concentração</option>
-          <option value='2'>Road Trip</option>
-        </select></p>
 
       <p> <label for="nome">Nome do Evento</label> <input type="text" name="nome" id="nome"></p>
 
@@ -58,10 +53,10 @@
 
       <section id="mapa"></section>
 
-      <p><label for="mapaF" id = "mapaFL">Ponto de destino</label></p>
+    <!--<p><label for="mapaF" id = "mapaFL">Ponto de destino</label></p>
       <section id="mapaF"></section>
-
-      <p> <button onclick="Registar()"> Publicar </button></p>
+    -->
+      <p> <button onclick="Atualizar()"> Atualizar </button></p>
 
     </form>
 

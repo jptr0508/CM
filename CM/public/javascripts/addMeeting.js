@@ -1,9 +1,8 @@
 var latleng;
 var latlengF
-var tipo;
+
 var user_ID = 1;
 window.onload = async function () {
-
     document.getElementById("mapaFL").style.display = 'none';
     document.getElementById("mapaF").style.display = 'none';
     try {
@@ -58,19 +57,20 @@ window.onload = async function () {
 }
 
 async function roadtrip() {
-    tipo = document.getElementById("tipoEvent").value;
     
+    tipo = document.getElementById("tipoEvent").value;
+
     switch (tipo) {
-        
+
         case '1':
-            
+
             document.getElementById("mapaFL").style.display = 'none';
             document.getElementById("mapaF").style.display = 'none';
             break;
 
 
         case '2':
-            
+
             document.getElementById("mapaFL").style.display = 'block';
             document.getElementById("mapaF").style.display = 'block';
             break;
@@ -79,23 +79,21 @@ async function roadtrip() {
 }
 
 async function Registar() {
-    alert("Evento criado com sucesso");
+   
     switch (tipo) {
-       
-        case '1':
-            alert("Evento criado com sucesso");
 
+        case '1':
             let data = {
                 conc_nome: document.getElementById("nome").value,
                 conc_descricao: document.getElementById("descricao").value,
                 conc_data: document.getElementById("data").value,
-                conc_tipo:tipo,
+                conc_tipo:1,
                 conc_coordenadas: latleng,
                 conc_creator_id: 1,
-                conc_pontos_id:1
+               
             };
-            
-                
+            console.log(data);
+            alert("  ");
             
                 try {                      
                 let res = await $.ajax({
@@ -110,14 +108,8 @@ async function Registar() {
                 window.location.href = "meeting.html";
 
             } catch (err) {
-                console.log(err);
+                alert(err);
             }
-            
-            
-                
-            
-
-            
             break;
 
         case '2':
@@ -129,7 +121,7 @@ async function Registar() {
                     conc_data: document.getElementById("data").value,
                     conc_coordenadas: latleng,
                     conc_creator_id: 1,
-                    conc_tipo:tipo,
+                    conc_tipo: tipo,
                     rt_coordenadas_final: latlengF
                 };
 
@@ -147,6 +139,8 @@ async function Registar() {
             } catch (err) {
                 console.log(err);
             }
+
             break;
     }
+  
 }
