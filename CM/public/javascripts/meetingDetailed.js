@@ -1,7 +1,8 @@
 var tipo;
+var data = sessionStorage.getItem('concentId');
 
 window.onload = async function () {
-    let data = sessionStorage.getItem('concentId');
+    
     try {
         let html = "";
         let concent = await $.ajax({
@@ -24,6 +25,22 @@ window.onload = async function () {
 
 document.getElementById("concentracoes").innerHTML = html;
 
+    let html1 = "";
+    let inscricoes = await $.ajax({
+        url: '/api/carros/inscritos/' + data,
+        method: "get",
+        dataType: "json"
+    });
+    console.log(inscricoes);
+    for(let inscrito of inscricoes){
+        html1 += `<section>
+        <h3>${inscrito.user_nome}</h3>
+        <h4>${inscrito.car_modelo}</h4>
+        <br>
+        </section>`;
+        document.getElementById("inscritos").innerHTML = html1;
+        console.log(inscrito);
+    }
                 let map = L.map('map').setView([concent.conc_coordenadas.x, concent.conc_coordenadas.y], 13);
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -62,4 +79,5 @@ document.getElementById("concentracoes").innerHTML = html;
     } catch (err) {
         console.log(err);
     }
+
 }

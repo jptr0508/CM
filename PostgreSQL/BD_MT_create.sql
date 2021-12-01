@@ -1,11 +1,8 @@
---create database MT;
-
---use MT;
-
 create table Utilizador (User_Id serial not null,
 						 User_nome varchar(60) not null,
 					     User_birthday date not null,
-						 User_pontos integer,                           --users points
+						 User_pontos integer,--users points
+						 user_password varchar(60) not null,
 						 primary key (User_Id));
 
 create table Carros (Car_Id serial not null,
@@ -41,7 +38,7 @@ create table PontosIntermedios(PI_Id serial not null,
 create table Concentracoes(Conc_Id serial not null,
 						   Conc_nome varchar(30) not null,
 						   Conc_descricao text,
-						   Conc_data date not null,                --time and date of the event
+						   Conc_data timestamp not null,                --time and date of the event
 						   Conc_coordenadas point not null,             --event coordinates/roadtrip initial coordinates
 						   Conc_creator_Id integer not null,            --FK to Utilizador
 						   Conc_tipo integer not null,                  --tipo de concentração
@@ -54,7 +51,7 @@ create table Roadtrip(RT_Id serial not null,
 					  inherits (Concentracoes);
 
 create table Pontos(Pontos_Id serial not null,
-					Pontos_concentracao float4 not null,
+					Pontos_concentracao integer not null,
 					primary key (Pontos_Id));
 
 create table MilestonesUtilizador (Ms_User_Id serial not null,

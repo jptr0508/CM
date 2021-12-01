@@ -15,4 +15,11 @@ router.post("/", async function (req, res, next) {
 
 });
 
+router.get("/inscritos/:id", async function (req, res, next) {
+    let insc = req.params.id;
+    let result = await mCarro.getCarrosIncritos(insc);
+    res.status(result.status).send(result.result);
+
+});
+
 module.exports = router;
