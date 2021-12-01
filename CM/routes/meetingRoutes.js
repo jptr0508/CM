@@ -20,7 +20,7 @@ router.get("/:id/roadtrip", async function (req, res, next) {
    res.status(result.status).send(result.result);
 });
 
-router.post("/", async function (req, res, next){
+router.post("/regConc", async function (req, res, next){
    let newMeet = req.body;
    let result = await mUtil.saveConcent(newMeet);
    res.status(result.status).send(result.result);
@@ -32,7 +32,7 @@ router.put("/pontos", async function (req, res, next) {
    res.status(result.status).send(result.result);
 });
 
-router.post("/roadtrip", async function (req, res, next) {
+router.post("/regRoadtrip", async function (req, res, next) {
    let newMeet = req.body;
    let result = await mUtil.saveRoadtrip(newMeet);
    res.status(result.status).send(result.result);

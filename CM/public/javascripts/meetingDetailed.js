@@ -1,9 +1,6 @@
 var tipo;
 
 window.onload = async function () {
-
-
-
     let data = sessionStorage.getItem('concentId');
     try {
         let html = "";
@@ -12,13 +9,13 @@ window.onload = async function () {
             method: "get",
             dataType: "json"
         });
-
         console.log(concent);
 
         html += `<section>
 <h3>${concent.conc_nome}</h3>
 <h3>${concent.conc_descricao}</h3>
 <h3>Tipo: ${concent.conc_tipo}</h3>
+<h3>Data: ${concent.conc_data}</h3>
 <h3>${concent.conc_creator_id}</h3>
 <div id="map"></div>
 </section>`;

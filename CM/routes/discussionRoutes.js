@@ -16,6 +16,6 @@ router.post("/", async function (req, res, next){
     let newDisc = req.body;
     let result = await mDisc.saveDisc(newDisc);
     res.status(result.status).send(result.result);
- })
+ });
 
 module.exports=router;

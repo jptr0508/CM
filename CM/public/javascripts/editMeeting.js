@@ -56,7 +56,11 @@ async function Atualizar(){
         conc_coordenadas : latleng
     }
     alert("123");
+    
     try{
+       
+        console.log(data);
+        alert("321");
     let concent = await $.ajax({
         url: "/api/concentracoes/upConcent",
         method: "put",
@@ -64,6 +68,7 @@ async function Atualizar(){
         dataType: "json",
         contentType: "application/json"
     });
+    alert("chegou");
     window.location.href = "meetingDetailed.html";
     alert("Meeting atualizado com sucesso");
     

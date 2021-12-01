@@ -8,10 +8,7 @@ window.onload = async function () {
     try {
 
         document.getElementById("mapaF").innerHTML = "";
-
         var map = L.map('mapa').setView([38.712954, -9.131880], 13);
-
-
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
@@ -28,12 +25,7 @@ window.onload = async function () {
         }
 
         map.on('click', onMapClick);
-
-
-
         var mapaF = L.map('mapaF').setView([38.712954, -9.131880], 13);
-
-
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(mapaF);
@@ -57,7 +49,7 @@ window.onload = async function () {
 }
 
 async function roadtrip() {
-    
+
     tipo = document.getElementById("tipoEvent").value;
 
     switch (tipo) {
@@ -79,34 +71,26 @@ async function roadtrip() {
 }
 
 async function Registar() {
-   
     switch (tipo) {
-
         case '1':
-            let data = {
+            let info = {
                 conc_nome: document.getElementById("nome").value,
                 conc_descricao: document.getElementById("descricao").value,
                 conc_data: document.getElementById("data").value,
-                conc_tipo:1,
+                conc_tipo: tipo,
                 conc_coordenadas: latleng,
-                conc_creator_id: 1,
-               
+                conc_creator_id: 1
             };
-            console.log(data);
-            alert("  ");
-            
-                try {                      
+            try {
                 let res = await $.ajax({
-                    url: `/api/concentracoes`,
+                    url: `/api/concentracoes/regConc`,
                     method: "post",
-                    data: JSON.stringify(data),
+                    data: JSON.stringify(info),
                     dataType: "json",
                     contentType: "application/json"
-                });
+                })
                 alert("Pontos atribuidos a criacao do evento");
-
                 window.location.href = "meeting.html";
-
             } catch (err) {
                 alert(err);
             }
@@ -121,26 +105,26 @@ async function Registar() {
                     conc_data: document.getElementById("data").value,
                     conc_coordenadas: latleng,
                     conc_creator_id: 1,
-                    conc_tipo: tipo,
+                    conc_tipo: 2,
                     rt_coordenadas_final: latlengF
                 };
-
-                let res1 = await $.ajax({
-                    url: `/api/concentracoes/roadtrip`,
+                console.log(data);
+                let res = await $.ajax({
+                    url: `/api/concentracoes/regRoadtrip`,
                     method: "post",
                     data: JSON.stringify(data),
                     dataType: "json",
                     contentType: "application/json"
                 });
-
-
                 alert("Roadtrip criado com sucesso");
+
                 window.location.href = "meeting.html";
+
             } catch (err) {
                 console.log(err);
             }
 
             break;
     }
-  
+
 }

@@ -75,7 +75,10 @@ module.exports.saveRoadtrip = async function (rt) {
     try {
         let sql = "insert into roadtrip (conc_nome, conc_descricao, conc_data, conc_coordenadas, conc_creator_id,conc_tipo,rt_coordenadas_final) values ($1,$2,$3,$4,$5,$6,$7)";
         let result = await pool.query(sql, [rt.conc_nome, rt.conc_descricao, rt.conc_data, rt.conc_coordenadas, rt.conc_creator_id, rt.conc_tipo, rt.rt_coordenadas_final]);
-
+        return {
+            status: 200,
+            result: result
+        }
     } catch (err) {
         console.log(err);
         return {
@@ -104,7 +107,7 @@ module.exports.atualizarPontos = async function (userPontos) {
 
 module.exports.atualizarMeeting = async function (meeting) {
     try {
-        let sql = "update concentracoes set conc_nome =$1, conc_descricao = $2, conc_data=$3, conc_coordenadas=$4 where conc_id = $5";
+        let sql = "update concentracoes set conc_nome = $1, conc_descricao = $2, conc_data=$3, conc_coordenadas=$4 where conc_id = $5";
         let result = await pool.query(sql,[meeting.conc_nome, meeting.conc_descricao, meeting.conc_data, meeting.conc_coordenadas, meeting.conc_id]);
         return {
             status: 200,
