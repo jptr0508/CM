@@ -94,6 +94,6 @@ footer {
 }
 /*------------/Footer-----------------*/
 
-#map { height: 400px;
-width: 400px;
- }
+#map, #mapa { height: 500px;
+width: 500px;
+}

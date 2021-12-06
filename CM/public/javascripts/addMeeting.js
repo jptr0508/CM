@@ -78,6 +78,7 @@ async function Registar() {
                 conc_descricao: document.getElementById("descricao").value,
                 conc_data: document.getElementById("data").value,
                 conc_tipo: tipo,
+                conc_pontos_id: 1,
                 conc_coordenadas: latleng,
                 conc_creator_id: 1
             };
@@ -104,7 +105,8 @@ async function Registar() {
                     conc_descricao: document.getElementById("descricao").value,
                     conc_data: document.getElementById("data").value,
                     conc_coordenadas: latleng,
-                    conc_creator_id: 1,
+                    conc_creator_id: user_ID,
+                    conc_pontos_id : 2,
                     conc_tipo: 2,
                     rt_coordenadas_final: latlengF
                 };

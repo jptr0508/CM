@@ -1,9 +1,17 @@
 var tipo;
 var data = sessionStorage.getItem('concentId');
-
+var user_id = 1;
+var id_inscritos=[];
 window.onload = async function () {
     
     try {
+        let owner = await $.ajax({
+            url: "/api/users/owner/" + data+"/"+ user_id,
+            method: "get",
+            dataType: "json"
+        });
+        console.log(owner);
+        if (owner == false ) document.getElementById("ePontos").style.display = 'none';
         let html = "";
         let concent = await $.ajax({
             url: "/api/concentracoes/" + data,
@@ -31,16 +39,22 @@ document.getElementById("concentracoes").innerHTML = html;
         method: "get",
         dataType: "json"
     });
+
     console.log(inscricoes);
     for(let inscrito of inscricoes){
+        
+        id_inscritos.push(inscrito.user_id);
+       
         html1 += `<section>
-        <h3>${inscrito.user_nome}</h3>
+        <h3>${inscrito.user_id} ${inscrito.user_nome}</h3>
         <h4>${inscrito.car_modelo}</h4>
         <br>
         </section>`;
         document.getElementById("inscritos").innerHTML = html1;
         console.log(inscrito);
     }
+    console.log(id_inscritos);
+
                 let map = L.map('map').setView([concent.conc_coordenadas.x, concent.conc_coordenadas.y], 13);
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -48,18 +62,13 @@ document.getElementById("concentracoes").innerHTML = html;
 
         switch (tipo) {
             case 1:
-
-
-                
-
                 L.marker([concent.conc_coordenadas.x, concent.conc_coordenadas.y]).addTo(map)
                     .bindPopup(concent.conc_nome)
                     .openPopup();
 
                 break;
-            case 2:
-                
 
+            case 2:
                 let roadtrip = await $.ajax({
                     url: "/api/concentracoes/" + data +"/roadtrip",
                     method: "get",
@@ -72,7 +81,6 @@ document.getElementById("concentracoes").innerHTML = html;
                         L.latLng(roadtrip.rt_coordenadas_final.x,roadtrip.rt_coordenadas_final.y )
                     ]
                 }).addTo(map);
-
                 break;
         }
 
@@ -80,4 +88,21 @@ document.getElementById("concentracoes").innerHTML = html;
         console.log(err);
     }
 
+}
+
+
+async function entregarPontos() {
+try {
+    for(i = 0; i<id_inscritos.length; i++){
+        let pontos = await $.ajax({
+            url: '/api/users/upPontos/'+data+"/"+id_inscritos[i],
+            method: "put",
+            dataType: "json"
+        });
+
+    } 
+    window.location.href= "meeting.html";
+} catch (error) {
+    console.log(error);
+}
 }

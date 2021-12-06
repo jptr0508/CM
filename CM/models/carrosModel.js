@@ -18,6 +18,24 @@ module.exports.getCarrosUser = async function (id) {
     }
 }
 
+module.exports.getCarroAtivo = async function (id) {
+    try {
+        let sql = "Select * from carros where car_id = $1";
+        let result = await pool.query(sql, [id]);
+        let carrosUser = result.rows[0];
+        return {
+            status: 200,
+            result: carrosUser
+        };
+    } catch (err) {
+        console.log(err);
+        return {
+            status: 500,
+            result: err
+        };
+    }
+}
+
 module.exports.inscreverCarro = async function (Insc) {
     try {
         console.log(Insc);
@@ -61,7 +79,7 @@ module.exports.inscreverCarro = async function (Insc) {
 
 module.exports.getCarrosIncritos = async function (id) {
     try {
-        let sql = "Select user_nome, car_modelo from utilizador inner join carros on user_id = car_user_id inner join concentracoescarros on car_id = conc_car_car_id where conc_car_conc_id = $1";
+        let sql = "Select user_id, user_nome, car_modelo from utilizador inner join carros on user_id = car_user_id inner join concentracoescarros on car_id = conc_car_car_id where conc_car_conc_id = $1";
         let result = await pool.query(sql, [id]);
         let inscrito = result.rows;
         return {

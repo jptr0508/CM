@@ -3,6 +3,27 @@ var car_id = sessionStorage.getItem("car_id");
 
 window.onload = async function () {
     try {
+        let htmlCarro = "";
+        let carroAtivo = await $.ajax({
+            url: '/api/carros/' + car_id + '/ativo',
+            method: "get",
+            dataType: "json"
+        });
+
+
+        htmlCarro = `Carro ativo: ${carroAtivo.car_modelo}`
+        document.getElementById("carroAtivo").innerHTML = htmlCarro;
+
+
+
+
+    } catch (err) {
+        htmlCarro = "Carro ativo: Nenhum (Selecione um carro para poder ver os eventos)";
+        document.getElementById("carroAtivo").innerHTML = htmlCarro;
+        document.getElementById("concentracoes").style.display = 'none';
+    }
+
+    try {
         console.log(car_id);
         var map = L.map('mapa').setView([45.707116, -9.152556], 3);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -32,6 +53,7 @@ window.onload = async function () {
                     break;
 
             }
+            if(concent.conc_estado){
             console.log(concent.conc_coordenadas.x, concent.conc_coordenadas.y);
             html += `<section>
             <h3>${concent.conc_nome}</h3>
@@ -40,10 +62,11 @@ window.onload = async function () {
             <p>Tipo de evento: ` + tipo_concent + `</p>
             <button onclick='editarMeet(${concent.conc_id})'>Editar</button>
             <button onclick='showConcent(${concent.conc_id})'>Detalhes</button>
-            <button type="button" onclick='inscrever(${concent.conc_id},` + car_id +","+user_id+ `)'>Inscrever-me</button>
+            <button type="button" onclick='inscrever(${concent.conc_id},` + car_id + "," + user_id + `)'>Inscrever-me</button>
             </section>`;
-            document.getElementById("concentracoes").innerHTML = html;
+            }
         }
+        document.getElementById("concentracoes").innerHTML = html;
     } catch (err) {
         console.log(err);
     }
@@ -62,23 +85,23 @@ function showConcent(id) {
 
 async function inscrever(conc_id, car_id, user_id) {
     let data = {
-        conc_id : conc_id,
+        conc_id: conc_id,
         car_id: car_id,
-        user_id : user_id
+        user_id: user_id
     };
     try {
         let concentracoes = await $.ajax({
-        url: '/api/carros',
-        method: "post",
-        data: JSON.stringify(data),
-        dataType: "json",
-        contentType: "application/json"
-    });
-    alert("registado com sucesso");
+            url: '/api/carros',
+            method: "post",
+            data: JSON.stringify(data),
+            dataType: "json",
+            contentType: "application/json"
+        });
+        alert("registado com sucesso");
 
     } catch (error) {
-        
+        alert("Já se encontra inscrito no evento");
     }
-    
+
 
 }
