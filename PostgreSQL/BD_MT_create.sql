@@ -42,6 +42,7 @@ create table Concentracoes(Conc_Id serial not null,
 						   Conc_coordenadas point not null,             --event coordinates/roadtrip initial coordinates
 						   Conc_creator_Id integer not null,            --FK to Utilizador
 						   Conc_tipo integer not null,                  --tipo de concentração
+						   Conc_estado boolean,                         --estado da concentração
 						   Conc_pontos_Id integer,                      --FK to Pontos
 						   primary key (Conc_Id));
 
