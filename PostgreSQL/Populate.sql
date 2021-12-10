@@ -6,8 +6,8 @@ insert into produtos (prod_nome, prod_descricao,prod_stock, prod_preço) values(
 insert into produtos (prod_nome, prod_descricao,prod_stock, prod_preço) values('Trocar fluidos de motor','Troca de fluidos de motor na oficina Norauto a 40% de desconto',20, 10000);
 insert into produtos (prod_nome, prod_descricao,prod_stock, prod_preço) values('Alinhamento de direção','Alinhamento de direção na oficicina Auto Seat a 15% desconto',0, 3000);
 
-insert into concentracoes (conc_nome, conc_descricao,conc_data,conc_coordenadas, conc_tipo,conc_creator_id, conc_estado ) values('Hondas do aço','Concentracao de hondas do aço','2020-11-05','38.788383, -9.093056',1, 2, true);
-insert into concentracoes (conc_nome, conc_descricao,conc_data,conc_coordenadas,conc_tipo,conc_creator_id, conc_estado ) values('BMWs do porto','Concentracao de BMWs','2020-11-11','41.183631, -8.56538',1 ,1,true);
+insert into concentracoes (conc_nome, conc_descricao,conc_data,conc_coordenadas, conc_tipo,conc_creator_id, conc_estado, conc_pontos_id ) values('Hondas do aço','Concentracao de hondas do aço','2020-11-05','38.788383, -9.093056',1, 2, true,1);
+insert into concentracoes (conc_nome, conc_descricao,conc_data,conc_coordenadas,conc_tipo,conc_creator_id, conc_estado, conc_pontos_id ) values('BMWs do porto','Concentracao de BMWs','2020-11-11','41.183631, -8.56538',1 ,1,true,1);
 
 insert into discussoes (disc_nome, disc_descricao, disc_tags, disc_creator_id ) values('Como trocar o óleo a um fiat punto','Olá malta, estava com um problema a trocssr o óleo ao meu fiat puta, e gostava de saber se alguem me conseguia ajudar!','#DIY, #PuntoéCarro', 1);
 insert into discussoes (disc_nome, disc_descricao, disc_tags, disc_creator_id ) values('O que acham do novo BMW M4 que saiu?','Boas pessoal, neste forum gostava de saber quais as vossas ideias sobre o novo BMW M4 acabadinho de ser lançado','#BMW, #PetrolHead', 2);
