@@ -36,7 +36,16 @@ window.onload = async function () {
             dataType: "json"
         });
         for (let concent of concentracoes) {
-
+            let presentes = await $.ajax({
+                url: '/api/carros/inscritos/'+concent.conc_id,
+                method: "get",
+                dataType: "json"
+            });
+            console.log(presentes.length);
+            
+            if(!presentes) {
+                inscritos = 0;}
+                else inscritos = presentes.length;
             let tipo_concent;
             console.log(concent.conc_tipo);
 
@@ -51,15 +60,16 @@ window.onload = async function () {
                 case 2:
                     tipo_concent = "Roadtrip"
                     break;
-
             }
             if(concent.conc_estado){
             console.log(concent.conc_coordenadas.x, concent.conc_coordenadas.y);
             html += `<section>
+            <h3>${concent.conc_id}</h3>
             <h3>${concent.conc_nome}</h3>
             <p>${concent.conc_descricao}</p>
             <p>${concent.conc_data}</p>
             <p>Tipo de evento: ` + tipo_concent + `</p>
+            <p>Inscritos: `+inscritos+`</p>
             <button onclick='editarMeet(${concent.conc_id})'>Editar</button>
             <button onclick='showConcent(${concent.conc_id})'>Detalhes</button>
             <button type="button" onclick='inscrever(${concent.conc_id},` + car_id + "," + user_id + `)'>Inscrever-me</button>
@@ -80,7 +90,6 @@ function editarMeet(id) {
 function showConcent(id) {
     sessionStorage.setItem("concentId", id);
     window.location = "meetingDetailed.html";
-
 }
 
 async function inscrever(conc_id, car_id, user_id) {
@@ -98,10 +107,9 @@ async function inscrever(conc_id, car_id, user_id) {
             contentType: "application/json"
         });
         alert("registado com sucesso");
+        window.location.href = "#";
 
     } catch (error) {
         alert("Já se encontra inscrito no evento");
     }
-
-
 }

@@ -115,7 +115,7 @@ module.exports.upPontos = async function (conc_id, user_id) {
         let result1 = await pool.query(sql1, [pontosResultado, user_id]);
 
         let sql2 = "update concentracoes set conc_estado = false where conc_id = $1";
-        let reulst2 =   await pool.query(sql2, [conc_id]);
+        let result2 =   await pool.query(sql2, [conc_id]);
 
         return {
             status: 200,

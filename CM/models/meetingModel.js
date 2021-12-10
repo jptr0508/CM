@@ -56,8 +56,8 @@ module.exports.getRoadtripById = async function (id) {
 
 module.exports.saveConcent = async function (meet) {
     try {
-        let sql = "insert into concentracoes (conc_nome, conc_descricao, conc_data, conc_coordenadas, conc_creator_id, conc_tipo) values ($1,$2,$3,$4,$5,$6)";
-        let result = await pool.query(sql, [meet.conc_nome, meet.conc_descricao, meet.conc_data, meet.conc_coordenadas, meet.conc_creator_id, meet.conc_tipo]);
+        let sql = "insert into concentracoes (conc_nome, conc_descricao, conc_data, conc_coordenadas, conc_creator_id, conc_tipo,conc_estado,conc_pontos_id) values ($1,$2,$3,$4,$5,$6,$7,$8)";
+        let result = await pool.query(sql, [meet.conc_nome, meet.conc_descricao, meet.conc_data, meet.conc_coordenadas, meet.conc_creator_id, meet.conc_tipo,true,1]);
         return {
             status: 200,
             result: result
@@ -73,8 +73,8 @@ module.exports.saveConcent = async function (meet) {
 
 module.exports.saveRoadtrip = async function (rt) {
     try {
-        let sql = "insert into roadtrip (conc_nome, conc_descricao, conc_data, conc_coordenadas, conc_creator_id,conc_tipo,rt_coordenadas_final) values ($1,$2,$3,$4,$5,$6,$7)";
-        let result = await pool.query(sql, [rt.conc_nome, rt.conc_descricao, rt.conc_data, rt.conc_coordenadas, rt.conc_creator_id, rt.conc_tipo, rt.rt_coordenadas_final]);
+        let sql = "insert into roadtrip (conc_nome, conc_descricao, conc_data, conc_coordenadas, conc_creator_id,conc_tipo,conc_estado,conc_pontos_id,rt_coordenadas_final) values ($1,$2,$3,$4,$5,$6,$7,$8,$9)";
+        let result = await pool.query(sql, [rt.conc_nome, rt.conc_descricao, rt.conc_data, rt.conc_coordenadas,rt.conc_creator_id,rt.conc_tipo,true,2,rt.rt_coordenadas_final]);
         return {
             status: 200,
             result: result

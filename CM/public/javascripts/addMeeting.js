@@ -80,7 +80,7 @@ async function Registar() {
                 conc_tipo: tipo,
                 conc_pontos_id: 1,
                 conc_coordenadas: latleng,
-                conc_creator_id: 1
+                conc_creator_id: 1,
             };
             try {
                 let res = await $.ajax({
