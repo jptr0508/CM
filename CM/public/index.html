@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meets & Trips</title>
+    <link rel="icon" href="images/favicon-32x32.png">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="javascripts/login.js"></script>
+  </head>
+
   <body>
     <form>
       <h1>Login</h1>
-      <p><label for="username"> Username: </label><input type="text" name="username" id="username"></p>
+      <p><label for="username"> Username: </label><input type="text" name="username" id="nome"></p>
       <p><label for="password"> Password: </label><input type="password" name="password" id="password"></p>
-      <p> <button type="button"> Publicar </button></p>
+      <p> <button type="button" onclick="logIn()"> Publicar </button></p>
+      <h3 id = "msg"></h3>
     </form>
   </body>
 </html>

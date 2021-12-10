@@ -20,7 +20,7 @@ module.exports.getAllConcents = async function () {
 
 module.exports.getConcentByID = async function (id) {
     try {
-        let sql = "Select * from concentracoes where conc_id = $1";
+        let sql = "Select * from concentracoes inner join utilizador u on u.user_id = concentracoes.conc_creator_id where conc_id = $1";
         let result = await pool.query(sql, [id]);
         let concentracoes = result.rows[0];
         return {
@@ -38,7 +38,7 @@ module.exports.getConcentByID = async function (id) {
 
 module.exports.getRoadtripById = async function (id) {
     try {
-        let sql = "Select * from roadtrip where conc_id = $1";
+        let sql = "Select * from roadtrip inner join utilizador u on u.user_id = concentracoes.conc_creator_id where conc_id = $1";
         let result = await pool.query(sql, [id]);
         let roadtrips = result.rows[0];
         return {

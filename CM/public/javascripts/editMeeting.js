@@ -1,4 +1,4 @@
-var user_ID = 1;
+var user_ID = sessionStorage.getItem('userId');
 let concentId = sessionStorage.getItem('concentId');
 var latleng="";
 window.onload = async function () {
@@ -58,9 +58,6 @@ async function Atualizar(){
     alert("123");
     
     try{
-       
-        console.log(data);
-        alert("321");
     let concent = await $.ajax({
         url: "/api/concentracoes/upConcent",
         method: "put",

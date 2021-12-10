@@ -1,8 +1,14 @@
 var latleng;
 var latlengF
 
-var user_ID = 1;
+var user_ID = sessionStorage.getItem('userId');
 window.onload = async function () {
+    document.getElementById("nome").style.display = 'none';
+    document.getElementById("data").style.display = 'none';
+    document.getElementById("descricao").style.display = 'none';
+    document.getElementById("mapa").style.display = 'none';
+    document.getElementById("mapaFL").style.display = 'none';
+    document.getElementById("mapaF").style.display = 'none';
     document.getElementById("mapaFL").style.display = 'none';
     document.getElementById("mapaF").style.display = 'none';
     try {
@@ -49,20 +55,24 @@ window.onload = async function () {
 }
 
 async function roadtrip() {
-
     tipo = document.getElementById("tipoEvent").value;
 
     switch (tipo) {
-
         case '1':
-
+            document.getElementById("nome").style.display = 'block';
+            document.getElementById("data").style.display = 'block';
+            document.getElementById("descricao").style.display = 'block';
+            document.getElementById("mapa").style.display = 'block';
             document.getElementById("mapaFL").style.display = 'none';
             document.getElementById("mapaF").style.display = 'none';
             break;
 
 
         case '2':
-
+            document.getElementById("nome").style.display = 'block';
+            document.getElementById("data").style.display = 'block';
+            document.getElementById("descricao").style.display = 'block';
+            document.getElementById("mapa").style.display = 'block';
             document.getElementById("mapaFL").style.display = 'block';
             document.getElementById("mapaF").style.display = 'block';
             break;
@@ -80,7 +90,7 @@ async function Registar() {
                 conc_tipo: tipo,
                 conc_pontos_id: 1,
                 conc_coordenadas: latleng,
-                conc_creator_id: 1,
+                conc_creator_id: user_ID,
             };
             try {
                 let res = await $.ajax({
@@ -106,7 +116,7 @@ async function Registar() {
                     conc_data: document.getElementById("data").value,
                     conc_coordenadas: latleng,
                     conc_creator_id: user_ID,
-                    conc_pontos_id : 2,
+                    conc_pontos_id: 2,
                     conc_tipo: 2,
                     rt_coordenadas_final: latlengF
                 };

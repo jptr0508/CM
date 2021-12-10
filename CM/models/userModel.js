@@ -83,6 +83,7 @@ module.exports.getUsersName = async function () {
 
 module.exports.login = async function (nome, password) {
     try {
+        console.log("chegou");
         let sql = "Select * from utilizador where user_nome = $1 and user_password = $2";
         let result = await pool.query(sql, [nome, password]);
         if (result.rows.length > 0)

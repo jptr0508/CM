@@ -1,4 +1,4 @@
-var user_id = 1;
+var user_id = sessionStorage.getItem('userId');
 var car_id = sessionStorage.getItem("car_id");
 
 window.onload = async function () {
@@ -64,7 +64,6 @@ window.onload = async function () {
             if(concent.conc_estado){
             console.log(concent.conc_coordenadas.x, concent.conc_coordenadas.y);
             html += `<section>
-            <h3>${concent.conc_id}</h3>
             <h3>${concent.conc_nome}</h3>
             <p>${concent.conc_descricao}</p>
             <p>${concent.conc_data}</p>

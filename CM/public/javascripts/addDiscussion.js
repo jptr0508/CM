@@ -6,7 +6,7 @@ async function RegistarDisc() {
         disc_nome: document.getElementById("nome").value,
         disc_tags: document.getElementById("tags").value,
         disc_descricao: document.getElementById("descricao").value,
-        disc_creator_id:1
+        disc_creator_id:sessionStorage.getItem('userId')
     };
     try {
         let res = await $.ajax({

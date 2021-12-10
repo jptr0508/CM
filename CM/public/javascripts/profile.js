@@ -1,6 +1,7 @@
-var user_id = 1;
+var user_id = sessionStorage.getItem('userId');
 
 window.onload = async function () {
+    
     try {
         let html = "";
      

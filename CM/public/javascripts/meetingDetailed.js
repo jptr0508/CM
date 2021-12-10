@@ -1,6 +1,6 @@
 var tipo;
 var data = sessionStorage.getItem('concentId');
-var user_id = 1;
+var user_id = sessionStorage.getItem('userId');
 var id_inscritos=[];
 window.onload = async function () {
     
@@ -11,6 +11,8 @@ window.onload = async function () {
             dataType: "json"
         });
         console.log(owner);
+
+
         if (owner == false ) document.getElementById("ePontos").style.display = 'none';
         let html = "";
         let concent = await $.ajax({
@@ -23,9 +25,8 @@ window.onload = async function () {
         html += `<section>
 <h3>${concent.conc_nome}</h3>
 <h3>${concent.conc_descricao}</h3>
-<h3>Tipo: ${concent.conc_tipo}</h3>
 <h3>Data: ${concent.conc_data}</h3>
-<h3>${concent.conc_creator_id}</h3>
+<h3>${concent.user_nome}</h3>
 <div id="map"></div>
 </section>`;
 
