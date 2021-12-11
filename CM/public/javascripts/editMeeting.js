@@ -55,8 +55,6 @@ async function Atualizar(){
         conc_data:document.getElementById("data").value,
         conc_coordenadas : latleng
     }
-    alert("123");
-    
     try{
     let concent = await $.ajax({
         url: "/api/concentracoes/upConcent",

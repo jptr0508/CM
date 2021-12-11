@@ -26,11 +26,6 @@ router.post("/regConc", async function (req, res, next){
    res.status(result.status).send(result.result);
 });
 
-router.put("/pontos", async function (req, res, next) {
-   let pontos = req.body;
-   let result = await mUtil.atualizarPontos(pontos);
-   res.status(result.status).send(result.result);
-});
 
 router.post("/regRoadtrip", async function (req, res, next) {
    let newMeet = req.body;

@@ -1,5 +1,4 @@
 var pool = require("./connection");
-var pontos = 0;
 module.exports.getAllConcents = async function () {
     try {
         let sql = "Select * from concentracoes order by conc_id";
@@ -38,7 +37,7 @@ module.exports.getConcentByID = async function (id) {
 
 module.exports.getRoadtripById = async function (id) {
     try {
-        let sql = "Select * from roadtrip inner join utilizador u on u.user_id = concentracoes.conc_creator_id where conc_id = $1";
+        let sql = "Select * from roadtrip inner join utilizador u on u.user_id = roadtrip.conc_creator_id where conc_id = $1";
         let result = await pool.query(sql, [id]);
         let roadtrips = result.rows[0];
         return {
@@ -75,23 +74,6 @@ module.exports.saveRoadtrip = async function (rt) {
     try {
         let sql = "insert into roadtrip (conc_nome, conc_descricao, conc_data, conc_coordenadas, conc_creator_id,conc_tipo,conc_estado,conc_pontos_id,rt_coordenadas_final) values ($1,$2,$3,$4,$5,$6,$7,$8,$9)";
         let result = await pool.query(sql, [rt.conc_nome, rt.conc_descricao, rt.conc_data, rt.conc_coordenadas,rt.conc_creator_id,rt.conc_tipo,true,2,rt.rt_coordenadas_final]);
-        return {
-            status: 200,
-            result: result
-        }
-    } catch (err) {
-        console.log(err);
-        return {
-            status: 500,
-            result: err
-        };
-    }
-}
-
-module.exports.atualizarPontos = async function (userPontos) {
-    try {
-        let sql = "update utilizador set user_pontos = $1 where user_id = $2";
-        let result = await pool.query(sql, [userPontos.pontosF, userPontos.userID]);
         return {
             status: 200,
             result: result

@@ -100,7 +100,7 @@ async function Registar() {
                     dataType: "json",
                     contentType: "application/json"
                 })
-                alert("Pontos atribuidos a criacao do evento");
+                alert("Evento criado com sucesso");
                 window.location.href = "meeting.html";
             } catch (err) {
                 alert(err);
