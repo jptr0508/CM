@@ -47,7 +47,7 @@ document.getElementById("concentracoes").innerHTML = html;
         id_inscritos.push(inscrito.user_id);
        
         html1 += `<section>
-        <h3>${inscrito.user_id} ${inscrito.user_nome}</h3>
+        <h4>${inscrito.user_id} ${inscrito.user_nome}</h4>
         <h4>${inscrito.car_modelo}</h4>
         <br>
         </section>`;

@@ -71,7 +71,7 @@ window.onload = async function () {
             <p>Inscritos: `+inscritos+`</p>
             <button onclick='editarMeet(${concent.conc_id})'>Editar</button>
             <button onclick='showConcent(${concent.conc_id})'>Detalhes</button>
-            <button type="button" onclick='inscrever(${concent.conc_id},` + car_id + "," + user_id + `)'>Inscrever-me</button>
+            <button class="button" type="button" onclick='inscrever(${concent.conc_id},` + car_id + "," + user_id + `)'>Inscrever-me</button>
             </section>`;
             }
         }

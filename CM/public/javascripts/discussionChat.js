@@ -29,8 +29,9 @@ window.onload = async function () {
         console.log(discu);
 
         for (let disc of discu)
-        html += `<p style = "color: black"> ${disc.user_nome} </p>
-                 <p style = "color: black"> ${disc.disc_user_mensagem}</p>`;        
+        html += `<p class="p1"> ${disc.user_nome} </p>
+                 <p class="p"> ${disc.disc_user_mensagem}</p>
+                 <br>`;        
         document.getElementById("mensagens").innerHTML = html;
 
     } catch (err) {
