@@ -2,7 +2,7 @@
 Plataforma online para marcação de eventos automoveis e troca de ideias entre amantes dos mesmos.
 Possui tambem uma loja virtual com virtual currency para efetuar.
 
-## Autores:
+# Autores:
 
 | Número | Nome |
 |--------|------|
@@ -15,6 +15,6 @@ Possui tambem uma loja virtual com virtual currency para efetuar.
 [1]:https://meets-trips.herokuapp.com/
 
 
-## Credenciais para teste:
+# Credenciais para teste:
 Username: "Ricardo Silva"
 Passowrd: "ricardo"
