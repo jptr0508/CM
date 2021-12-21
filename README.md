@@ -13,3 +13,8 @@ Possui tambem uma loja virtual com virtual currency para efetuar.
 # Link da aplicação Online [1]
 
 [1]:https://meets-trips.herokuapp.com/
+
+
+## Credenciais para teste:
+Usernmae: "Ricardo Silva"
+Passowrd: "ricardo"
