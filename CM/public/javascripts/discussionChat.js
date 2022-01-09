@@ -41,7 +41,7 @@ window.onload = async function () {
 
 async function Message(){
     
-    let info ={ 
+    let info = { 
         disc_user_user_id: sessionStorage.getItem('userId'),
         disc_user_disc_id: discussao,
         disc_user_mensagem: document.getElementById("chat").value
