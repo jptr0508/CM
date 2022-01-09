@@ -17,4 +17,4 @@ Possui tambem uma loja virtual com virtual currency para efetuar.
 
 # Credenciais para teste:
 Username: "Ricardo Silva"
-Passowrd: "ricardo"
+Password: "ricardo"
